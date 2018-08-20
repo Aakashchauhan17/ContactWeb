@@ -1,0 +1,10 @@
+
+<title>Filtered Contacts</title>
+<h2>Near by Contacts List : </h2>
+<body>
+<mat-card *ngFor="let item of LocationAwareList">
+      <mat-card-title>Name: {{item.title}}</mat-card-title>
+      <mat-card-subtitle>Email: {{item.subtitle}}</mat-card-subtitle>
+      <mat-card-subtitle>[Phone No: {{item.phone_num}}]</mat-card-subtitle>
+</mat-card>
+</body>
