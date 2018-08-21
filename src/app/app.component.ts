@@ -1,10 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import {Router} from '@angular/router';
-
 import { Kinvey, CacheStore } from 'kinvey-angular2-sdk';
 import { AppModule } from './app.module';
-import * as myGlobals from './gloabal';
-
 
 Kinvey.init({
   appKey: 'kid_HkXB1x-XQ',
@@ -21,6 +18,7 @@ interface Contact {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
     title = 'ContactWeb';
     public contactList: Array<any> = [];
     dataStore: CacheStore<Contact>;
@@ -29,8 +27,6 @@ export class AppComponent implements OnInit {
     }
     clicked() {
       this.router.navigateByUrl('/filter');
-      navigator.geolocation.getCurrentPosition((loc) => {
-      myGlobals.UrlComponent.urlArray = loc.coords; });
     }
   ngOnInit(): void {
     if (Kinvey.User.getActiveUser()) {

@@ -1,14 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <meta name="theme-color" content="#8531ca"/>
     <title>Contact List</title>
     </head>
 <div style="text-align:center">
   <mat-toolbar color = "primary"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <span class="example-fill-remaining-space">   Welcome to {{ title }}! </span>
    </mat-toolbar>
 </div>
 <p></p>
+
 <button mat-raised-button (click)="clicked()">Click to filter</button>
   <h2>Here are all the contacts of your Salesforce: </h2>
     <mat-card *ngFor="let item of contactList">
