@@ -29,10 +29,14 @@
 //     })
 //   );
 // });
+const version = "1"
 var cacheName = 'ContactWeb';
 var filesToCache = [
-  '/',
-  '/index.html'
+  './',
+  './index.html',
+  './app/app.component.ts',
+  './app/app.component.html',
+  './app/app.component.css' 
   // '/main.ts',
   // '/styles.css'
 ];
