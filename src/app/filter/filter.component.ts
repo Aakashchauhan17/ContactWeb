@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit {
 
 
     constructor(private zone: NgZone, private http: HttpClient) {
-        this.dataStore = Kinvey.DataStore.collection<NewContact>('context');
+        this.dataStore = Kinvey.DataStore.collection<NewContact>('context', Kinvey.DataStoreType.Network);
 
     }
 
@@ -36,10 +36,12 @@ ngOnInit(): void {
     if (Kinvey.User.getActiveUser()) {
     const subscription = this.dataStore.find()
             .subscribe(data => {
+                this.LocationAwareList.length = 0;
                 const  abc = data;
                 navigator.geolocation.getCurrentPosition((loc) => {
               const myloc = loc ;
               for ( let i = 0, size = abc.length; i < size; i++) {
+                  console.log('length is:' , abc.length);
                   let street = abc[i].MailingStreet;
                   let city = abc[i].MailingCity;
                   street = street.replace(/ +/g, '');
@@ -54,7 +56,8 @@ const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + stree
                   if (distance < 100) {
                     console.log('your distance is ->', distance);
                     this.zone.run(() => {
-                        this.LocationAwareList.push({title: abc[i].Name, subtitle: abc[i].Email, phone_num: abc[i].Phone });
+this.LocationAwareList.indexOf(abc[i].Name) === -1 ?
+this.LocationAwareList.push({title: abc[i].Name, subtitle: abc[i].Email, phone_num: abc[i].Phone }) : console.log('Exist');
                     });
                     } else {
                       console.log('Could not complete action of Push');
@@ -65,8 +68,6 @@ const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + stree
             });
         }
         });
-        this.LocationAwareList = [];
-
     }, function(e) {
         });
     }
