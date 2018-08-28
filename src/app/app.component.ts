@@ -3,10 +3,6 @@ import {Router} from '@angular/router';
 import { Kinvey, CacheStore } from 'kinvey-angular2-sdk';
 import { AppModule } from './app.module';
 
-Kinvey.init({
-  appKey: 'kid_HkXB1x-XQ',
-  appSecret: '311020ed9d26404aaf0e932cad204b03'
-});
 interface Contact {
   _id;
   Name: string;
@@ -19,38 +15,19 @@ interface Contact {
 })
 export class AppComponent implements OnInit {
 
-    title = 'ContactWeb';
-    public contactList: Array<any> = [];
-    dataStore: CacheStore<Contact>;
-    constructor(private zone: NgZone, private router: Router) {
-    this.dataStore = Kinvey.DataStore.collection<Contact>('context');
+    constructor(private router: Router) { }
+    logout() {
+      Kinvey.User.logout().then(() => {
+        this.router.navigate(['login']);
+        console.log('Logged Out');
+
+      });
     }
-    clicked() {
-      this.router.navigateByUrl('/filter');
+    loginBut() {
+      this.router.navigate(['login']);
     }
   ngOnInit(): void {
-    if (Kinvey.User.getActiveUser()) {
-      const subscription = this.dataStore.find()
-      .subscribe(data => {
-        this.zone.run(() => {
-        this.contactList = data; });
-      }, (error) => {
-        alert(error);
-      }, () => {
-        // ...
-      }); } else {
-      Kinvey.User.login('admin', 'admin').then(() => { const subscription = this.dataStore.find()
-        .subscribe(data => {
-          this.zone.run(() => {
-          this.contactList = data; });
-        }, (error) => {
-          alert(error);
-        }, () => {
-          // ...
-        });
-      } );
 
-    }
   }
 }
 
