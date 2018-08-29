@@ -3,10 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
-<mat-card *ngFor="let item of LocationAwareList">
+<mat-card *ngFor="let item of LocationAwareList| paginate: { itemsPerPage: 10, currentPage: p }">
       <mat-card-title>{{item.title}}</mat-card-title>
       <mat-card-subtitle>Email: {{item.subtitle}}</mat-card-subtitle>
       <mat-card-subtitle>[Phone No: {{item.phone_num}}]</mat-card-subtitle>
 </mat-card>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </body>
 <router-outlet></router-outlet>

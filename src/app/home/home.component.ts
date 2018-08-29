@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
   dataStore: CacheStore<Contact>;
   constructor(private zone: NgZone, private router: Router) {
     this.dataStore = Kinvey.DataStore.collection<Contact>('context', Kinvey.DataStoreType.Network);
+    // for (let i = 1; i <= 100; i++) {
+    //   this.contactList.push(`item ${i}`);
+    // }
 }
 clicked() {
   this.router.navigateByUrl('/filter');

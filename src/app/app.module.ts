@@ -8,6 +8,9 @@ import {MatButtonModule, MatCardModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -25,7 +28,9 @@ import { HomeComponent } from './home/home.component';
   HttpClientModule,
   MatButtonModule,
   MatCardModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatPaginatorModule,
+  NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

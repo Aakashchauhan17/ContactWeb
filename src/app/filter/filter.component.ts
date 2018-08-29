@@ -1,8 +1,7 @@
 import { Component, OnInit, NgZone , Inject, Injectable } from '@angular/core';
  import {Kinvey, CacheStore} from 'kinvey-angular2-sdk';
 import {
-    HttpClient, HTTP_INTERCEPTORS, HttpEventType, HttpErrorResponse,
-    HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpClientModule, HttpParams
+    HttpClient
 } from '@angular/common/http';
 
 

@@ -1,28 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-    <meta name="theme-color" content="#8531ca"/>
-    <title>Contact List</title>
-    </head>
+
+<button class="button-right" color="warn" mat-raised-button (click)="logout()">Logout</button>
+
+<button color ="accent" mat-raised-button (click)="loginBut()">Login Page</button>
 <div style="text-align:center">
-  <mat-toolbar color = "primary"> 
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <span class="example-fill-remaining-space">   Welcome to {{ title }}! </span>
-   </mat-toolbar>
+    <mat-toolbar color = "primary"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <span class="example-fill-remaining-space">   Contact Web-App! </span>
+     </mat-toolbar>
+  </div>
+  <div>
+  <p> This is the Contact Web App, which allows you to find out your contacts from your Salesforce account. Moreover, it can allow you to Filter your contacts which are near by your current location.</p>
+  <p>This application is built on Angular 6 and Kinvey Backend; Provides Mobile identity connect to the Salesforce so that you can login with your account. It can work as a PWA.</p>
+  <p>Direction: Go to Login Page to operate. If you are using Apple's device then you need to turn on Location service from the Settings -> Safari. </p>
 </div>
-<p></p>
-
-<button mat-raised-button (click)="clicked()">Click to filter</button>
-  <h2>Here are all the contacts of your Salesforce: </h2>
-    <mat-card *ngFor="let item of contactList">
-    <mat-card-title >
-      {{item.Name}}
-    </mat-card-title>
-  </mat-card>
-<router-outlet></router-outlet> -->
-<button mat-raised-button (click)="logout()">Logout</button>
-<button mat-raised-button (click)="loginBut()">Login Page</button>
-
 
 <router-outlet></router-outlet>
