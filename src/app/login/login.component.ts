@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   SFClicked() {
 
       console.log('else');
-     Kinvey.User.loginWithMIC('http://localhost:4200').then(user => {
+     Kinvey.User.loginWithMIC('https://contactpwa.herokuapp.com').then(user => {
       console.log('completed');
 
      this.router.navigate(['home']);
