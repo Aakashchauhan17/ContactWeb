@@ -14,6 +14,7 @@ interface Contact {
 })
 export class HomeComponent implements OnInit {
   title = 'ContactWeb';
+  p: Number = 1;
   public contactList;
   dataStore: CacheStore<Contact>;
   constructor(private zone: NgZone, private router: Router) {

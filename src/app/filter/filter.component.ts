@@ -20,6 +20,7 @@ templateUrl: './filter.component.html',
 styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
+    p: Number = 1;
     public newList: Array<any> = [];
      dataStore: CacheStore<NewContact>;
     public LocationAwareList: Array<any> = [];
